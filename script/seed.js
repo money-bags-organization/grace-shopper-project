@@ -1,4 +1,4 @@
-//comment
+//merge commit test
 'use strict';
 
 const {
