@@ -1,3 +1,4 @@
+
 const Sequelize = require("sequelize");
 const db = require("../db");
 
@@ -11,3 +12,4 @@ const OrderProducts = db.define("orderproduct", {
 });
 
 module.exports = OrderProducts;
+

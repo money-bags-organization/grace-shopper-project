@@ -21,12 +21,14 @@ const User = db.define("user", {
   },
   password: {
     type: Sequelize.STRING,
+
     allowNull: false,
   },
   isAdmin: {
     type: Sequelize.BOOLEAN,
   },
 });
+
 
 module.exports = User;
 

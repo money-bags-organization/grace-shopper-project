@@ -1,5 +1,6 @@
 //this is the access point for all things database related!
 
+
 const db = require("./db");
 const User = require("./models/User");
 const Orders = require("./models/Orders");
@@ -15,12 +16,19 @@ Orders.belongsTo(User);
 Orders.belongsToMany(Products, { through: OrderProducts });
 Products.belongsToMany(Orders, { through: OrderProducts });
 
+const db = require('./db')
+const Orders = require('./models/Orders')
+const Products = require('./models/Products')
+
+
 module.exports = {
   db,
   models: {
     User,
+
     Orders,
     Products,
     OrderProducts,
+  
   },
 };
