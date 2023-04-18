@@ -1,9 +1,9 @@
-const Sequelize = require('sequelize')
-const db = require('../db')
 
+const Sequelize = require("sequelize");
+const db = require("../db");
 
+const Orders = db.define("order", {
 
-const Orders = db.define('order', {
   fulfilled: {
     type: Sequelize.BOOLEAN,
   },
@@ -11,7 +11,11 @@ const Orders = db.define('order', {
     type: Sequelize.INTEGER,
   },
 
+});
+
+module.exports = Orders;
 
 })
 
-module.exports = Orders
+
+
