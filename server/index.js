@@ -15,6 +15,7 @@ const init = async () => {
   } catch (ex) {
     console.log(ex);
   }
+
 };
 
 init();
