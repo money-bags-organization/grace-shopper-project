@@ -1,8 +1,4 @@
-//merge commit test # 2
-//merge commit test # 2
 'use strict';
-
-//test test this is a test
 
 const {
   db,
