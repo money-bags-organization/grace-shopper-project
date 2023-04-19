@@ -4,6 +4,7 @@ import { Route, Routes } from 'react-router-dom';
 import AuthForm from '../features/auth/AuthForm';
 import Home from '../features/home/Home';
 import { me } from './store';
+import SingleProduct from './components/SingleProduct';
 
 /**
  * COMPONENT
@@ -19,6 +20,8 @@ const AppRoutes = () => {
 
   return (
     <div>
+      {<Route
+            path='/products/:productId/*' element={<SingleProduct />} />}
       {isLoggedIn ? (
         <Routes>
           <Route path="/*" element={<Home />} />
