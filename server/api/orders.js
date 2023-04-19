@@ -7,7 +7,7 @@ const {
 router.get('/', async (req, res, next) => {
   try {
     const orders = await Orders.findAll({
-      attributes: ['fulfilled', 'userId'],
+      attributes: ['id', 'fulfilled', 'userId'],
     });
     res.json(orders);
   } catch (err) {

@@ -1,9 +1,9 @@
-"use strict";
+'use strict';
 
 const {
   db,
   models: { User, OrderProducts, Orders, Products },
-} = require("../server/db");
+} = require('../server/db');
 
 /**
  * seed - this function clears the database, updates tables to
@@ -11,33 +11,31 @@ const {
  */
 async function seed() {
   await db.sync({ force: true }); // clears db and matches models to tables
-  console.log("db synced!");
+  console.log('db synced!');
 
   // Creating Users
   const users = await Promise.all([
-
     User.create({
-      username: "cody",
-      email: "cody@gmail.com",
-      password: "123",
+      username: 'cody',
+      email: 'cody@gmail.com',
+      password: '123',
       isAdmin: false,
     }),
     User.create({
-      username: "murphy",
-      email: "murphy@gmail.com",
-      password: "123",
+      username: 'murphy',
+      email: 'murphy@gmail.com',
+      password: '123',
       isAdmin: true,
     }),
   ]);
 
   const products = await Promise.all([
-    Products.create({ name: "gameboy", price: "100", quantity: "1" }),
-    Products.create({ name: "vcr", price: "180", quantity: "1" }),
+    Products.create({ name: 'gameboy', price: '100', quantity: '1' }),
+    Products.create({ name: 'vcr', price: '180', quantity: '1' }),
   ]);
 
   console.log(`seeded ${users.length} users`);
   console.log(`seeded successfully`);
-
 
   return {
     users: {
@@ -53,16 +51,16 @@ async function seed() {
  The `seed` function is concerned only with modifying the database.
 */
 async function runSeed() {
-  console.log("seeding...");
+  console.log('seeding...');
   try {
     await seed();
   } catch (err) {
     console.error(err);
     process.exitCode = 1;
   } finally {
-    console.log("closing db connection");
+    console.log('closing db connection');
     await db.close();
-    console.log("db connection closed");
+    console.log('db connection closed');
   }
 }
 
