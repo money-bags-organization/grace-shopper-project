@@ -11,7 +11,7 @@ import SingleProduct from './components/SingleProduct';
  */
 
 const AppRoutes = () => {
-  const isLoggedIn = useSelector((state) => !!state.auth.me.id);
+  const isLoggedIn = useSelector(state => !!state.auth.me.id);
   const dispatch = useDispatch();
 
   useEffect(() => {
@@ -20,27 +20,26 @@ const AppRoutes = () => {
 
   return (
     <div>
-      {<Route
-            path='/products/:productId/*' element={<SingleProduct />} />}
       {isLoggedIn ? (
         <Routes>
-          <Route path="/*" element={<Home />} />
-          <Route to="/home" element={<Home />} />
+          <Route path='/*' element={<Home />} />
+          <Route to='/home' element={<Home />} />
         </Routes>
       ) : (
         <Routes>
           <Route
-            path="/*"
-            element={<AuthForm name="login" displayName="Login" />}
+            path='/*'
+            element={<AuthForm name='login' displayName='Login' />}
           />
           <Route
-            path="/login"
-            element={<AuthForm name="login" displayName="Login" />}
+            path='/login'
+            element={<AuthForm name='login' displayName='Login' />}
           />
           <Route
-            path="/signup"
-            element={<AuthForm name="signup" displayName="Sign Up" />}
+            path='/signup'
+            element={<AuthForm name='signup' displayName='Sign Up' />}
           />
+          <Route path='/products/:productId/*' element={<SingleProduct />} />
         </Routes>
       )}
     </div>
