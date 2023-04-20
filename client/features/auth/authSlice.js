@@ -47,6 +47,26 @@ export const authenticate = createAsyncThunk(
     }
   }
 );
+export const signUpAuthenticate = createAsyncThunk(
+  'auth/signUpAuthenticate',
+  async ({ username, password, email, method }, thunkAPI) => {
+    try {
+      const res = await axios.post(`/auth/${method}`, {
+        username,
+        password,
+        email,
+      });
+      window.localStorage.setItem(TOKEN, res.data.token);
+      thunkAPI.dispatch(me());
+    } catch (err) {
+      if (err.response.data) {
+        return thunkAPI.rejectWithValue(err.response.data);
+      } else {
+        return 'There was an issue with your request.';
+      }
+    }
+  }
+);
 
 /*
   SLICE
@@ -64,7 +84,7 @@ export const authSlice = createSlice({
       state.error = null;
     },
   },
-  extraReducers: (builder) => {
+  extraReducers: builder => {
     builder.addCase(me.fulfilled, (state, action) => {
       state.me = action.payload;
     });
