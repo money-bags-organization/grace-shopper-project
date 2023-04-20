@@ -1,33 +1,29 @@
 import React, { useEffect } from 'react';
 import { useParams } from 'react-router-dom';
 import { useDispatch, useSelector } from 'react-redux';
-import { fetchStudents } from '../features/studentsSlice';
-import { NavLink } from 'react-router-dom';
 
 import {
-  fetchSingleProduct,
+  fetchSingleProductAsync,
   selectSingleProduct,
-} from '../features/SingleProductSlice';
+} from '../../features/singleProductSlice';
 
 const SingleProduct = () => {
   const dispatch = useDispatch();
-  const { campusId } = useParams();
-  const campus = useSelector(selectSingleProduct);
-  const students = useSelector(state => state.product);
+  const { productId } = useParams();
+  const product = useSelector(selectSingleProduct);
 
   useEffect(() => {
-    dispatch(fetchSingleProduct(campusId));
-    dispatch(fetchStudents());
-  }, [dispatch, campusId]);
+    dispatch(fetchSingleProductAsync(productId));
+  }, [dispatch, productId]);
 
-  const campusStudents = students.filter(s => s.campusId === +campusId);
+  console.log('message', product.name);
 
   return (
-    <div className='single-campus'>
-      <img src={campus.imageUrl} className='campus-Images' />
-      <h1> singleproduct  {campus.name} </h1>
-      <h1> {campus.address} </h1>
-      <p>{campus.description}</p>
+    <div>
+      {/* <img src={campus.imageUrl} className='campus-Images' /> */}
+      <h1> {product.name} </h1>
+      <h1> {product.price} </h1>
+      <p>{product.quantity}</p>
     </div>
   );
 };
