@@ -7,7 +7,7 @@ import Home from "../features/home/Home";
 import { me } from "./store";
 import SingleProduct from "./components/SingleProduct";
 import AllProducts from "./components/AllProducts";
-import Cart from "./components/Order";
+import Cart from "../features/auth/cart";
 
 /**
  * COMPONENT
