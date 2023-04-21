@@ -2,6 +2,7 @@ import React, { useEffect } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import {
   fetchAllProducts,
+  deleteProductsAsync
   //   addCampuses,
   //   deleteCampus,
 } from '../../features/allProductsSlice';
@@ -11,16 +12,20 @@ const AllProducts = () => {
   const dispatch = useDispatch();
   const products = useSelector(state => state.products);
 
-  //   const handleDelete = id => {
-  //     dispatch(deleteCampus(id));
-  //   };
+
+  //added by malcolm david
+     const handleDelete = id => {
+       dispatch(deleteProductsAsync(id));
+     };
+
+  //end edit
 
   useEffect(() => {
     dispatch(fetchAllProducts());
   }, [dispatch]);
 
   return (
-    <div className='group-campuses'>
+    <div >
       <div>
         {products.map((product, id) => {
           const key = id;
@@ -42,9 +47,9 @@ const AllProducts = () => {
                   </div>
                 </div>
               </NavLink>
-              {/* <button type='button' onClick={() => handleDelete(campus.id)}>
+              <button type='button' onClick={() => handleDelete(product.id)}>
                 X
-              </button> */}
+              </button>
             </div>
           );
         })}

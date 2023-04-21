@@ -26,4 +26,31 @@ router.get('/:id', async (req, res, next) => {
   }
 });
 
+//David and Malcolms Edit//
+router.delete('/:id', async (req, res, next) => {
+  try {
+    const products = await Products.findByPk(req.params.id);
+    await products.destroy();
+    res.send(products);
+  } catch (error) {
+    next(error);
+  }
+
+
+
+router.post('/', async (req, res, next) => {
+  try {
+    res.status(201).send(await Products.create(req.body));
+  } catch (error) {
+    next(error);
+  }
+});
+
+//End David and Malcolms Edit//
+
+
+
+
+});
+
 module.exports = router;
