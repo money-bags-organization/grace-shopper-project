@@ -47,11 +47,14 @@ export const authenticate = createAsyncThunk(
     }
   }
 );
+//***MALCOLMS OVERNIGHT EDITS******* */
+
 export const signUpAuthenticate = createAsyncThunk(
   'auth/signUpAuthenticate',
-  async ({ username, password, email, method }, thunkAPI) => {
+  async ({ username, password, email,  /*method*/ }, thunkAPI) => {
     try {
-      const res = await axios.post(`/auth/${method}`, {
+        // const res = await axios.post(`/auth/${method}`, {
+        const res = await axios.post(`/auth/signup`, {
         username,
         password,
         email,
@@ -67,6 +70,8 @@ export const signUpAuthenticate = createAsyncThunk(
     }
   }
 );
+//***END MALCOLMS OVERNIGHT EDITS******* */
+
 
 /*
   SLICE
