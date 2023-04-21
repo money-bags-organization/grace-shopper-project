@@ -36,21 +36,15 @@ router.delete('/:id', async (req, res, next) => {
     next(error);
   }
 
+  router.post('/', async (req, res, next) => {
+    try {
+      res.status(201).send(await Products.create(req.body));
+    } catch (error) {
+      next(error);
+    }
+  });
 
-
-router.post('/', async (req, res, next) => {
-  try {
-    res.status(201).send(await Products.create(req.body));
-  } catch (error) {
-    next(error);
-  }
-});
-
-//End David and Malcolms Edit//
-
-
-
-
+  //End David and Malcolms Edit//
 });
 
 module.exports = router;
