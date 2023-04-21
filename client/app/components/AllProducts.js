@@ -62,7 +62,7 @@ const AllProducts = () => {
       </div>
 
       <div className='form-div'>
-        <h1>Add A New Campus!</h1>
+        <h1>Add A New Product!</h1>
         <form onSubmit={handleSubmit}>
           <input
             type='text'
