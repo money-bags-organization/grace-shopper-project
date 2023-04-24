@@ -24,8 +24,8 @@ const SingleProduct = () => {
 
   const handleSubmit = evt => {
     evt.preventDefault();
-    const idd = 1;
-    dispatch(updateSingleProductAsync({ idd, name, price, quantity }));
+    const idd = product.products.id;
+    dispatch(updateSingleProductAsync({  name, price, quantity, idd }));
     setName('');
     setPrice('');
     setQuantity('');

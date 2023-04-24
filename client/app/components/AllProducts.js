@@ -37,7 +37,7 @@ const AllProducts = () => {
           const key = id;
           return (
             <div key={key}>
-              <NavLink to={`/products/${product.id}`}>
+              <NavLink to={`/products/${product.id}`} >
                 <div>
                   <div key={id}>
                     {/* <img

@@ -18,17 +18,21 @@ export const fetchSingleProductAsync = createAsyncThunk(
   }
 );
 
+
+
 export const updateSingleProductAsync = createAsyncThunk(
-  'updatesingleproduct',
-  async ({ idd, name, price, quantity }) => {
+  "updatesingleproduct",
+  async ({ name, price, quantity,idd}) => {
+    // const idd = 1
     const { data } = await axios.put(`/api/products/${idd}`, {
       name,
       price,
       quantity,
     });
     return data;
-  }
-);
+  });
+
+
 
 const SingleProductSlice = createSlice({
   name: 'singleproduct',

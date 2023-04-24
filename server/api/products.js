@@ -35,17 +35,19 @@ router.delete('/:id', async (req, res, next) => {
   } catch (error) {
     next(error);
   }
+});
 
-  router.post('/:id', async (req, res, next) => {
+
+  router.put('/:id', async (req, res, next) => {
     try {
-      const products = await Products.findByPk(req.params.id);
-      res.send(await products.update(req.body));
+      const singleproduct = await Products.findByPk(req.params.id);
+      res.send(await singleproduct.update(req.body));
     } catch (error) {
       next(error);
     }
   });
 
   //End David and Malcolms Edit//
-});
+
 
 module.exports = router;
