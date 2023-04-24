@@ -1,8 +1,8 @@
 import React from "react";
-import Order from "../../app/components/Order";
+import defaultCart from "../../app/components/Order";
 
 function Cart() {
-  const cartProducts = Order.cart;
+  const cartProducts = defaultCart.cart;
   if (cartProducts && cartProducts.length === 0) {
     return <p>Your cart is empty</p>;
   }
@@ -12,10 +12,10 @@ function Cart() {
       <h2>Your Cart</h2>
       <ul>
         {cartProducts &&
-          cartProducts.map((item) => {
-            <li key={item.id}>
-              {item.name} - {item.quantity} x {item.price} ={" "}
-              {item.quantity * item.price}
+          cartProducts.map((product) => {
+            <li key={product.id}>
+              {product.name} - {product.quantity} x {product.price} ={" "}
+              {product.quantity * product.price}
             </li>;
           })}
       </ul>

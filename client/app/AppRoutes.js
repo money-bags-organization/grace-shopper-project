@@ -32,7 +32,7 @@ const AppRoutes = () => {
       {isLoggedIn ? (
         <Routes>
           <Route path="/*" element={<Home />} />
-          <Route to="/home" element={<Home />} />
+          <Route path="/home" element={<Home />} />
           <Route path="/products/:productId/*" element={<SingleProduct />} />
         </Routes>
       ) : (
@@ -53,14 +53,16 @@ const AppRoutes = () => {
           <Route path="/cart" element={<Cart />} />
         </Routes>
       )}
-      {isLoggedAdmin ? 
-      <Routes>
-      <Route path="/products/" element={<AllProducts />} />
-      <Route path="/public/products/" element={<NotAdmin_AllProducts />} />
-     </Routes> 
-      :  (<Routes>
-      <Route path="/public/products/" element={<NotAdmin_AllProducts />} />
-     </Routes> )}
+      {isLoggedAdmin ? (
+        <Routes>
+          <Route path="/products/" element={<AllProducts />} />
+          <Route path="/public/products/" element={<NotAdmin_AllProducts />} />
+        </Routes>
+      ) : (
+        <Routes>
+          <Route path="/public/products/" element={<NotAdmin_AllProducts />} />
+        </Routes>
+      )}
     </div>
   );
 };

@@ -1,3 +1,4 @@
+require("dotenv").config();
 const Sequelize = require("sequelize");
 const db = require("../db");
 const jwt = require("jsonwebtoken");
@@ -28,7 +29,6 @@ const User = db.define("user", {
     type: Sequelize.BOOLEAN,
   },
 });
-
 
 module.exports = User;
 
