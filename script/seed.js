@@ -22,6 +22,12 @@ async function seed() {
       isAdmin: false,
     }),
     User.create({
+      username: 'malcolm',
+      email: 'thebestcoder@gmail.com',
+      password: '123',
+      isAdmin: true,
+    }),
+    User.create({
       username: 'murphy',
       email: 'murphy@gmail.com',
       password: '123',
@@ -29,10 +35,38 @@ async function seed() {
     }),
   ]);
 
+
+  //Malcolm Edit??
   const products = await Promise.all([
     Products.create({ name: 'gameboy', price: '100', quantity: '1' }),
     Products.create({ name: 'vcr', price: '180', quantity: '1' }),
   ]);
+  const rick = await User.create({
+    username:'rick',
+    email: 'rick@gmail.com',
+    password: '123',
+    isAdmin: false
+  })
+
+ const order1 = await Orders.create({
+    userId: rick.id,fulfilled:false
+   })
+   const order2 = await Orders.create({
+    userId: rick.id,fulfilled:false
+   })
+
+
+  // const playstation = await Products.create({ name: 'playstation', price: '100', quantity: '1', userId:rick.id, fulfilled: false })
+  const playstation = await Products.create({ name: 'playstation', price: '100', quantity: '1'})
+
+  // const rickyorder = await OrderProducts.create({
+
+  // })
+
+    const OrderProducts1 = await OrderProducts.create({orderId: order1.id, productId: playstation.id})
+    const OrderProducts2 = await OrderProducts.create({orderId: order2.id, productId: playstation.id})
+
+    //**End Malcolm Edit */
 
   console.log(`seeded ${users.length} users`);
   console.log(`seeded successfully`);

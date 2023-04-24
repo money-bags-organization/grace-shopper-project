@@ -5,9 +5,9 @@ const Orders = db.define("order", {
   fulfilled: {
     type: Sequelize.BOOLEAN,
   },
-  userId: {
-    type: Sequelize.INTEGER,
-  },
+  // userId: {
+  //   type: Sequelize.INTEGER,
+  // },
 });
 
 module.exports = Orders;
