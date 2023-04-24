@@ -3,7 +3,7 @@ import axios from 'axios';
 
 const initialState = {
   cart: [],
-  products:[]
+  products: [],
 };
 
 export const fetchSingleProductAsync = createAsyncThunk(
@@ -18,28 +18,32 @@ export const fetchSingleProductAsync = createAsyncThunk(
   }
 );
 
+export const updateSingleProductAsync = createAsyncThunk(
+  'updatesingleproduct',
+  async ({ idd, name, price, quantity }) => {
+    const { data } = await axios.put(`/api/products/${idd}`, {
+      name,
+      price,
+      quantity,
+    });
+    return data;
+  }
+);
 
 const SingleProductSlice = createSlice({
   name: 'singleproduct',
   initialState,
   reducers: {
-    addtoCart: (state,action) => {
-      state.cart.push(
-        action)
-    }
-  //   addtoCart: (state, action) => {
-  // const { product, cost } = action.payload;
-  // state.cart.push({
-  //   name: product,
-  //   price: cost
-  // });
-
-
-
+    addtoCart: (state, action) => {
+      state.cart.push(action);
+    },
   },
   extraReducers: builder => {
     builder.addCase(fetchSingleProductAsync.fulfilled, (state, action) => {
       state.products = action.payload;
+    });
+    builder.addCase(updateSingleProductAsync.fulfilled, (state, action) => {
+      state.push(action.payload);
     });
   },
 });
