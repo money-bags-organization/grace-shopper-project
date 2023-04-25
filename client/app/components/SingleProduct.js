@@ -66,7 +66,7 @@ const SingleProduct = () => {
     <div>
       <div className='product-single-element'>
         <div>
-          {/* <img src={campus.imageUrl} className='campus-Images' /> */}
+          <img src={product.products.imageUrl} className='single-image' />
           <h1> {product.products.name} </h1>
           <h1> {product.products.price} </h1>
           <p>{product.products.quantity}</p>
@@ -114,7 +114,6 @@ const SingleProduct = () => {
             </button>
           </form>
         </div>
-
       </div>
     </div>
   );

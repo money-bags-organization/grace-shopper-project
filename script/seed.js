@@ -35,46 +35,106 @@ async function seed() {
     }),
   ]);
 
-
   //Malcolm Edit??
   const products = await Promise.all([
-    Products.create({ name: 'Gameboy', price: '100', quantity: '1', imageUrl: '/grace-shopper-project/public/images/gameboy.jpeg' }),
-    Products.create({ name: 'VCR', price: '180', quantity: '1', imageUrl: '/grace-shopper-project/public/images/vcr.jpeg' }),
-    Products.create({ name: 'Nintendo 64', price: '150', quantity: '1', imageUrl: '/grace-shopper-project/public/images/n64.jpg' }),
-    Products.create({ name: 'Atari', price: '200', quantity: '1', imageUrl: '/grace-shopper-project/public/images/atari.jpeg' }),
-    Products.create({ name: 'Laser Disk', price: '80', quantity: '1', imageUrl: '/grace-shopper-project/public/images/laserdisc.jpeg' }),
-    Products.create({ name: 'Sega', price: '120', quantity: '1', imageUrl: '/grace-shopper-project/public/images/sega.jpg' }),
-    Products.create({ name: 'Jukebox', price: '220', quantity: '1', imageUrl: '/grace-shopper-project/public/images/jukebox.jpg' }),
-    Products.create({ name: 'Record Player', price: '65', quantity: '1', imageUrl: '/grace-shopper-project/public/images/recordplayer.jpeg' }),
-    Products.create({ name: 'Stretch Armstrong', price: '50', quantity: '1', imageUrl: '/grace-shopper-project/public/images/stretch.jpg' }),
-    Products.create({ name: 'Pac-Man Arcade Game', price: '1800', quantity: '1', imageUrl: '/grace-shopper-project/public/images/pac-man.jpg' })
+    Products.create({
+      name: 'Gameboy',
+      price: '100',
+      quantity: '1',
+      imageUrl: '/images/gameboy.jpeg',
+    }),
+    Products.create({
+      name: 'VCR',
+      price: '180',
+      quantity: '1',
+      imageUrl: '/images/vcr.jpeg',
+    }),
+    Products.create({
+      name: 'Nintendo 64',
+      price: '150',
+      quantity: '1',
+      imageUrl: '/images/n64.jpg',
+    }),
+    Products.create({
+      name: 'Atari',
+      price: '200',
+      quantity: '1',
+      imageUrl: '/images/atari.jpeg',
+    }),
+    Products.create({
+      name: 'Laser Disk',
+      price: '80',
+      quantity: '1',
+      imageUrl: '/images/laserdisc.jpeg',
+    }),
+    Products.create({
+      name: 'Sega',
+      price: '120',
+      quantity: '1',
+      imageUrl: '/images/sega.jpg',
+    }),
+    Products.create({
+      name: 'Jukebox',
+      price: '220',
+      quantity: '1',
+      imageUrl: '/images/jukebox.jpg',
+    }),
+    Products.create({
+      name: 'Record Player',
+      price: '65',
+      quantity: '1',
+      imageUrl: '/images/recordplayer.jpeg',
+    }),
+    Products.create({
+      name: 'Stretch Armstrong',
+      price: '50',
+      quantity: '1',
+      imageUrl: '/images/stretch.jpg',
+    }),
+    Products.create({
+      name: 'Pac-Man Arcade Game',
+      price: '1800',
+      quantity: '1',
+      imageUrl: '/images/pac-man.jpg',
+    }),
   ]);
   const rick = await User.create({
-    username:'rick',
+    username: 'rick',
     email: 'rick@gmail.com',
     password: '123',
-    isAdmin: false
-  })
+    isAdmin: false,
+  });
 
- const order1 = await Orders.create({
-    userId: rick.id,fulfilled:false
-   })
-   const order2 = await Orders.create({
-    userId: rick.id,fulfilled:false
-   })
-
+  const order1 = await Orders.create({
+    userId: rick.id,
+    fulfilled: false,
+  });
+  const order2 = await Orders.create({
+    userId: rick.id,
+    fulfilled: false,
+  });
 
   // const playstation = await Products.create({ name: 'playstation', price: '100', quantity: '1', userId:rick.id, fulfilled: false })
-  const playstation = await Products.create({ name: 'playstation', price: '100', quantity: '1'})
+  const playstation = await Products.create({
+    name: 'playstation',
+    price: '100',
+    quantity: '1',
+  });
 
   // const rickyorder = await OrderProducts.create({
 
   // })
 
-    const OrderProducts1 = await OrderProducts.create({orderId: order1.id, productId: playstation.id})
-    const OrderProducts2 = await OrderProducts.create({orderId: order2.id, productId: playstation.id})
+  const OrderProducts1 = await OrderProducts.create({
+    orderId: order1.id,
+    productId: playstation.id,
+  });
+  const OrderProducts2 = await OrderProducts.create({
+    orderId: order2.id,
+    productId: playstation.id,
+  });
 
-    //**End Malcolm Edit */
+  //**End Malcolm Edit */
 
   console.log(`seeded ${users.length} users`);
   console.log(`seeded successfully`);

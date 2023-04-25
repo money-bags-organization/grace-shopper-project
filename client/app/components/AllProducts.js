@@ -41,11 +41,12 @@ const AllProducts = () => {
                 <div>
                   <div key={id}>
                     <div>
-                      {/* <img
-                      src={product.imageUrl}
-                      className='site-Images'
-                    /> */}
-                      <div> <img></img></div>
+                      <img src={product.imageUrl} />
+
+                      <div>
+                        {' '}
+                        <img></img>
+                      </div>
                       <h1> {product.name} </h1>
                       <h1> {product.price} </h1>
                       <p>{product.quantity}</p>
