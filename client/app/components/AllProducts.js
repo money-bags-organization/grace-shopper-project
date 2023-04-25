@@ -40,12 +40,12 @@ const AllProducts = () => {
               <NavLink to={`/products/${product.id}`}>
                 <div>
                   <div key={id}>
-                    {/* <img
-                      src={campus?.imageUrl}
-                      alt={campus?.name}
-                      className='campus-Images'
-                    /> */}
                     <div>
+                      {/* <img
+                      src={product.imageUrl}
+                      className='site-Images'
+                    /> */}
+                      <div> <img></img></div>
                       <h1> {product.name} </h1>
                       <h1> {product.price} </h1>
                       <p>{product.quantity}</p>

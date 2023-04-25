@@ -114,6 +114,7 @@ const SingleProduct = () => {
             </button>
           </form>
         </div>
+
       </div>
     </div>
   );
