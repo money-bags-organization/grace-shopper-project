@@ -107,7 +107,7 @@ console.log("picture", product.products.imageUrl)
 
       <div className='product-single-element'>
         <div>
-          {/* <img src={campus.imageUrl} className='campus-Images' /> */}
+          <img src={product.products.imageUrl} className='single-image' />
           <h1> {product.products.name} </h1>
           <h1> {product.products.price} </h1>
           <p>{product.products.quantity}</p>
@@ -155,7 +155,6 @@ console.log("picture", product.products.imageUrl)
             </button>
           </form>
         </div>
-
       </div>
     </div>
   );

@@ -23,6 +23,11 @@ nav a {
   border-radius: 15px;
 }
 
+.single-image {
+  width: 100px;
+  height: 100px;
+}
+
 .product-parent-container {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
