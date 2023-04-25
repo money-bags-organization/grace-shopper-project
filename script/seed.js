@@ -37,6 +37,7 @@ async function seed() {
 
   //Malcolm Edit??
   const products = await Promise.all([
+
     Products.create({
       name: 'Gameboy',
       price: '100',
