@@ -32,11 +32,11 @@ const AllProducts = () => {
 
   return (
     <div>
-      <div>
+      <div className='product-parent-container'>
         {products.map((product, id) => {
           const key = id;
           return (
-            <div key={key}>
+            <div key={key} className='product-child-element'>
               <NavLink to={`/products/${product.id}`}>
                 <div>
                   <div key={id}>
@@ -61,8 +61,7 @@ const AllProducts = () => {
         })}
       </div>
 
-      <div className='form-div'>
-      </div>
+      <div className='form-div'></div>
     </div>
   );
 };
