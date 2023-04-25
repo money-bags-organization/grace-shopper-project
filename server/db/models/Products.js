@@ -9,6 +9,10 @@ const Products = db.define("product", {
     allowNull: false,
 
   },
+  imageUrl: {
+    type: Sequelize.STRING,
+     defaultValue: '/atari.jpg',
+  },
   price: {
     type: Sequelize.INTEGER,
   },
