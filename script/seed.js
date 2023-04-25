@@ -38,8 +38,16 @@ async function seed() {
 
   //Malcolm Edit??
   const products = await Promise.all([
-    Products.create({ name: 'gameboy', price: '100', quantity: '1' }),
-    Products.create({ name: 'vcr', price: '180', quantity: '1' }),
+    Products.create({ name: 'Gameboy', price: '100', quantity: '1', imageUrl: '/grace-shopper-project/public/images/gameboy.jpeg' }),
+    Products.create({ name: 'VCR', price: '180', quantity: '1', imageUrl: '/grace-shopper-project/public/images/vcr.jpeg' }),
+    Products.create({ name: 'Nintendo 64', price: '150', quantity: '1', imageUrl: '/grace-shopper-project/public/images/n64.jpg' }),
+    Products.create({ name: 'Atari', price: '200', quantity: '1', imageUrl: '/grace-shopper-project/public/images/atari.jpeg' }),
+    Products.create({ name: 'Laser Disk', price: '80', quantity: '1', imageUrl: '/grace-shopper-project/public/images/laserdisc.jpeg' }),
+    Products.create({ name: 'Sega', price: '120', quantity: '1', imageUrl: '/grace-shopper-project/public/images/sega.jpg' }),
+    Products.create({ name: 'Jukebox', price: '220', quantity: '1', imageUrl: '/grace-shopper-project/public/images/jukebox.jpg' }),
+    Products.create({ name: 'Record Player', price: '65', quantity: '1', imageUrl: '/grace-shopper-project/public/images/recordplayer.jpeg' }),
+    Products.create({ name: 'Stretch Armstrong', price: '50', quantity: '1', imageUrl: '/grace-shopper-project/public/images/stretch.jpg' }),
+    Products.create({ name: 'Pac-Man Arcade Game', price: '1800', quantity: '1', imageUrl: '/grace-shopper-project/public/images/pac-man.jpg' })
   ]);
   const rick = await User.create({
     username:'rick',
