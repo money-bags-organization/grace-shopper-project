@@ -59,11 +59,52 @@ const SingleProduct = () => {
     // dispatch(addOrderProducts({ UserId, ProductId, fulfilled}));
   };
   //END MALCOLM EDITS CART
-
+  // `../../${product.products.imageUrl}`
+  // client/features/singleProductSlice.js
   let cart = { name: product.products.name, price: product.products.price };
-
+console.log("picture", product.products.imageUrl)
   return (
     <div>
+
+      <img src={product.products.imageUrl} />
+      <h1> {product.products.name} </h1>
+      <h1> {product.products.price} </h1>
+      <p>{product.products.quantity}</p>
+      <button type='button' onClick={() => dispatch(handleCart)}>
+        New add to cart{' '}
+      </button>
+      <button type='button' onClick={() => dispatch(addtoCart(cart))}>
+        old add to cart{' '}
+      </button>
+      <div>
+        <form onSubmit={handleSubmit}>
+          <input
+            type='text'
+            value={name}
+            onChange={e => setName(e.target.value)}
+            name='product-name'
+            placeholder='Enter Product Name'
+          />
+          <br />
+          <input
+            type='text'
+            value={price}
+            name='product-price'
+            onChange={e => setPrice(e.target.value)}
+            placeholder='Enter Product Price'
+          />
+          <br />
+          <input
+            type='text'
+            value={quantity}
+            name='product-quantity'
+            onChange={e => setQuantity(e.target.value)}
+            placeholder='Enter Product Quantity'
+          />
+          <br />
+          <button type='submit'>Submit</button>
+        </form>
+
       <div className='product-single-element'>
         <div>
           {/* <img src={campus.imageUrl} className='campus-Images' /> */}

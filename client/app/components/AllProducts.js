@@ -35,9 +35,15 @@ const AllProducts = () => {
       <div className='product-parent-container'>
         {products.map((product, id) => {
           const key = id;
+          
           return (
+            
+            <div key={key}>
+              
+              <NavLink to={`/products/${product.id}`} >
             <div key={key} className='product-child-element'>
               <NavLink to={`/products/${product.id}`}>
+
                 <div>
                   <div key={id}>
                     <div>
