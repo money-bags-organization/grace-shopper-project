@@ -29,40 +29,37 @@ const AppRoutes = () => {
 
   return (
     <div>
-      {isLoggedIn ? (
-        <Routes>
-          <Route path="/*" element={<Home />} />
-          <Route path="/home" element={<Home />} />
-          <Route path="/products/:productId/*" element={<SingleProduct />} />
-        </Routes>
-      ) : (
-        <Routes>
-          <Route
-            path="/*"
-            element={<AuthForm name="login" displayName="Login" />}
-          />
-          <Route
-            path="/login"
-            element={<AuthForm name="login" displayName="Login" />}
-          />
-          <Route
-            path="/signup"
-            element={<SignUpAuthForm name="signup" displayName="Sign Up" />}
-          />
-          <Route path="/products/:productId/*" element={<SingleProduct />} />
-          <Route path="/cart" element={<Cart />} />
-        </Routes>
-      )}
-      {isLoggedAdmin ? (
-        <Routes>
-          <Route path="/products/" element={<AllProducts />} />
-          <Route path="/public/products/" element={<NotAdmin_AllProducts />} />
-        </Routes>
-      ) : (
-        <Routes>
-          <Route path="/public/products/" element={<NotAdmin_AllProducts />} />
-        </Routes>
-      )}
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/home" element={<Home />} />
+        <Route path="/cart" element={<Cart />} />
+        <Route path="/products/:productId/*" element={<SingleProduct />} />
+        {isLoggedIn ? (
+          <>
+            <Route path="/*" element={<Home />} />
+          </>
+        ) : (
+          <>
+            <Route
+              path="/login"
+              element={<AuthForm name="login" displayName="Login" />}
+            />
+            <Route
+              path="/signup"
+              element={<SignUpAuthForm name="signup" displayName="Sign Up" />}
+            />
+            <Route
+              path="/public/products/:productId/*"
+              element={<SingleProduct />}
+            />
+          </>
+        )}
+        {isLoggedAdmin ? (
+          <Route path="/products/*" element={<AllProducts />} />
+        ) : (
+          <Route path="/public/products/*" element={<NotAdmin_AllProducts />} />
+        )}
+      </Routes>
     </div>
   );
 };

@@ -1,40 +1,49 @@
-//Empty cart
 let cart = [];
-//Add product to cart
-const addToCart = (productId) => {
-  setCartProducts((prev) => ({ ...prev, [productId]: prev[productId] + 1 }));
-};
-//Remove product from cart
-const removeFromCart = (productId) => {
-  setCartProducts((prev) => ({ ...prev, [productId]: prev[productId] - 1 }));
-};
-//Checkout product from cart
-function totalCart() {
-  let total = 0;
-  for (const item of cart) {
-    total += item.price * item.quantity;
-  }
-  return total;
-}
-//Persist in cart if you are a logged in user
-function storeCart() {
-  localStorage.setItem("cart", JSON.stringify(cart));
-  console.log(" Cart has been saved");
-}
-//Load cart from storage
-function loadCart() {
-  const storeCart = localStorage.getItem("cart");
-  if (storeCart) {
-    cart = JSON.parse(storeCart);
-    console.log("Cart has been loaded");
+
+const addToCart = (product) => {
+  const existingProduct = cart.find((p) => p.id === product.id);
+  if (existingProduct) {
+    existingProduct.quantity += product.quantity;
   } else {
-    console.log("Nothing in cart");
+    cart.push(product);
   }
-}
+  saveCart();
+};
+
+const removeFromCart = (productId) => {
+  cart = cart.filter((p) => p.id !== productId);
+  saveCart();
+};
+
+const totalCarts = ({ cartProducts }) => {
+  const totalCart = () => {
+    let total = 0;
+    cartProducts.forEach((product) => {
+      total += product.price * product.quantity;
+    });
+    return total;
+  };
+};
+
+const loadCart = () => {
+  const storedCart = localStorage.getItem("cart");
+  if (storedCart) {
+    cart = JSON.parse(storedCart);
+  }
+};
+
+const saveCart = () => {
+  localStorage.setItem("cart", JSON.stringify(cart));
+};
+
+const getCart = () => {
+  return cart;
+};
+
 export default {
-  addToCart,
-  removeFromCart,
-  totalCart,
-  storeCart,
   loadCart,
+  addToCart,
+  totalCarts,
+  removeFromCart,
+  getCart,
 };

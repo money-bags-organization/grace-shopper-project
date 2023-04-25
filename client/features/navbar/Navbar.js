@@ -11,11 +11,10 @@ const Navbar = () => {
     dispatch(logout());
     navigate("/login");
   };
- //*Malcolm was Here
- const isLoggedAdmin = useSelector((state) => state.auth.me.isAdmin);
+  //*Malcolm was Here
+  const isLoggedAdmin = useSelector((state) => state.auth.me.isAdmin);
 
- //End Malcolm edit
-
+  //End Malcolm edit
 
   return (
     <div>
@@ -46,9 +45,7 @@ const Navbar = () => {
             {/* The navbar will show these links after you log in */}
           </div>
         ) : (
-          <div>
-            {/* The navbar will show these links before you log in */}
-          </div>
+          <div>{/* The navbar will show these links before you log in */}</div>
         )}
       </nav>
       <hr />
