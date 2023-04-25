@@ -35,8 +35,11 @@ const AllProducts = () => {
       <div>
         {products.map((product, id) => {
           const key = id;
+          
           return (
+            
             <div key={key}>
+              
               <NavLink to={`/products/${product.id}`} >
                 <div>
                   <div key={id}>

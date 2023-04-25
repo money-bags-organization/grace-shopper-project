@@ -59,15 +59,13 @@ console.log("startlength", orderlength)
     // dispatch(addOrderProducts({ UserId, ProductId, fulfilled}));
   };
   //END MALCOLM EDITS CART
-
+  // `../../${product.products.imageUrl}`
+  // client/features/singleProductSlice.js
   let cart = { name: product.products.name, price: product.products.price };
-
+console.log("picture", product.products.imageUrl)
   return (
     <div>
-      <img
-        src={product.products.imageUrl}
-        className='site-Images'
-      />
+      <img src={product.products.imageUrl} />
       <h1> {product.products.name} </h1>
       <h1> {product.products.price} </h1>
       <p>{product.products.quantity}</p>
