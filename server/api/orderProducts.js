@@ -17,4 +17,25 @@ router.get('/', async (req, res, next) => {
   }
 });
 
+router.post('/', async (req, res, next) => {
+  try {
+    console.log(req.body)
+    res.status(201).send(await OrderProducts.create(req.body));
+  } catch (error) {
+    next(error);
+  }
+});
+
+
+router.delete('/:id', async (req, res, next) => {
+  try {
+    const orders = await OrderProducts.findByPk(req.params.id);
+    await orders.destroy();
+    res.send(orders);
+  } catch (error) {
+    next(error);
+  }
+});
+
+
 module.exports = router;

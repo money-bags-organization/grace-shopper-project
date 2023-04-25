@@ -49,5 +49,13 @@ router.delete('/:id', async (req, res, next) => {
 
   //End David and Malcolms Edit//
 
+  router.post('/', async (req, res, next) => {
+    try {
+      res.status(201).send(await Products.create(req.body));
+    } catch (error) {
+      next(error);
+    }
+  });
+
 
 module.exports = router;
