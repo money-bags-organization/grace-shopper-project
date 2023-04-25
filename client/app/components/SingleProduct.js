@@ -4,8 +4,12 @@ import { useDispatch, useSelector } from 'react-redux';
 
 import {
   fetchSingleProductAsync,
+  fetchAllOrders,
+  fetchOrderProducts,
   selectSingleProduct,
   updateSingleProductAsync,
+  addOrderAsync,
+  addOrderProductAsync,
   addtoCart,
 } from '../../features/singleProductSlice';
 
@@ -17,10 +21,17 @@ const SingleProduct = () => {
   const [name, setName] = useState('');
   const [price, setPrice] = useState('');
   const [quantity, setQuantity] = useState('');
+//Malcolm added fetch all orders for cart
+const orderlength = useSelector((state) => state.singleProduct.orders.length) + 1
+console.log("startlength", orderlength)
+
 
   useEffect(() => {
     dispatch(fetchSingleProductAsync(productId));
+    dispatch(fetchAllOrders())
+    dispatch(fetchOrderProducts())
   }, [dispatch, productId]);
+//end malcolm added fetch all orders for add to cart
 
   const handleSubmit = evt => {
     evt.preventDefault();
@@ -31,6 +42,24 @@ const SingleProduct = () => {
     setQuantity('');
   };
 
+  console.log("productid", typeof(parseInt(productId)))
+  //MALCOLM AM EDITS CART
+  const userId = useSelector((state) => state.auth.me.id);
+  console.log("userID:", userId)
+  const handleCart = evt => {
+    // evt.preventDefault();
+    const fulfilled = false
+    dispatch(addOrderAsync({ userId, fulfilled}));
+    dispatch(addOrderProductAsync({orderId:orderlength,productId}));
+    dispatch(fetchAllOrders())
+    console.log("***********",orderlength)
+    dispatch(fetchOrderProducts())
+    
+    // const orderlength = useSelector((state) => state.singleProduct.orders.length)
+    // dispatch(addOrderProducts({ UserId, ProductId, fulfilled}));
+  };
+  //END MALCOLM EDITS CART
+
   let cart = { name: product.products.name, price: product.products.price };
 
   return (
@@ -39,8 +68,11 @@ const SingleProduct = () => {
       <h1> {product.products.name} </h1>
       <h1> {product.products.price} </h1>
       <p>{product.products.quantity}</p>
+      <button type='button' onClick={() => dispatch(handleCart)}>
+        New add to cart{' '}
+      </button>
       <button type='button' onClick={() => dispatch(addtoCart(cart))}>
-        add to cart{' '}
+        old add to cart{' '}
       </button>
       <div>
         <form onSubmit={handleSubmit}>
