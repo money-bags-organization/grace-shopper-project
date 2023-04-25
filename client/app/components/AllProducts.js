@@ -32,7 +32,7 @@ const AllProducts = () => {
 
   return (
     <div>
-      <div>
+      <div className='product-parent-container'>
         {products.map((product, id) => {
           const key = id;
           
@@ -41,6 +41,9 @@ const AllProducts = () => {
             <div key={key}>
               
               <NavLink to={`/products/${product.id}`} >
+            <div key={key} className='product-child-element'>
+              <NavLink to={`/products/${product.id}`}>
+
                 <div>
                   <div key={id}>
                     <div>
@@ -56,7 +59,11 @@ const AllProducts = () => {
                   </div>
                 </div>
               </NavLink>
-              <button type='button' onClick={() => handleDelete(product.id)}>
+              <button
+                type='button'
+                className='remove-bttn'
+                onClick={() => handleDelete(product.id)}
+              >
                 X
               </button>
             </div>
@@ -92,7 +99,7 @@ const AllProducts = () => {
           />
           <br />
 
-          <button>Submit</button>
+          <button className='addToCartBttn'>Submit</button>
         </form>
       </div>
     </div>
