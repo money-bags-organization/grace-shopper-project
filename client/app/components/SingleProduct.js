@@ -50,6 +50,9 @@ const SingleProduct = () => {
     // evt.preventDefault();
     const fulfilled = false;
     dispatch(addOrderAsync({ userId, fulfilled }));
+
+    setTimeout(2000);
+
     dispatch(addOrderProductAsync({ orderId: orderlength, productId }));
     dispatch(fetchAllOrders());
     console.log('***********', orderlength);

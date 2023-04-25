@@ -24,8 +24,8 @@ nav a {
 }
 
 .single-image {
-  width: 100px;
-  height: 100px;
+  width: 300px;
+  height: 300px;
 }
 
 .product-parent-container {
@@ -48,8 +48,8 @@ nav a {
 }
 
 .product-single-element {
-  width: 300px;
-  height: 250px;
+  width: 350px;
+  height: 500px;
   display: flex;
   flex-direction: column;
   justify-content: center;

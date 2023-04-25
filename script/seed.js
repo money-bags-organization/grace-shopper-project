@@ -125,14 +125,14 @@ async function seed() {
 
   // })
 
-  const OrderProducts1 = await OrderProducts.create({
-    orderId: order1.id,
-    productId: playstation.id,
-  });
-  const OrderProducts2 = await OrderProducts.create({
-    orderId: order2.id,
-    productId: playstation.id,
-  });
+  // const OrderProducts1 = await OrderProducts.create({
+  //   orderId: order1.id,
+  //   productId: playstation.id,
+  // });
+  // const OrderProducts2 = await OrderProducts.create({
+  //   orderId: order2.id,
+  //   productId: playstation.id,
+  // });
 
   //**End Malcolm Edit */
 
