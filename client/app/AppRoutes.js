@@ -9,7 +9,8 @@ import SingleProduct from "./components/SingleProduct";
 import AllProducts from "./components/AllProducts";
 import NotAdmin_AllProducts from "./components/NotAdmin_AllProducts";
 import Cart from "../features/auth/cart";
-
+import Payment from "./components/Payment";
+import PaymentMade from "./components/PaymentMade";
 /**
  * COMPONENT
  */
@@ -35,6 +36,8 @@ const AppRoutes = () => {
           <Route path="/home" element={<Home />} />
           <Route path="/products/:productId/*" element={<SingleProduct />} />
           <Route path="/cart" element={<Cart />} />
+          <Route path="/payment" element={<Payment />} />
+          <Route path="/paymentmade" element={<PaymentMade />} />
         </Routes>
       ) : (
         <Routes>
@@ -51,6 +54,9 @@ const AppRoutes = () => {
             element={<SignUpAuthForm name="signup" displayName="Sign Up" />}
           />
           <Route path="/products/:productId/*" element={<SingleProduct />} />
+          <Route path="/cart" element={<Cart />} />
+          <Route path="/payment" element={<Payment />} />
+          <Route path="/paymentmade" element={<PaymentMade />} />
         </Routes>
       )}
       {isLoggedAdmin ? (
