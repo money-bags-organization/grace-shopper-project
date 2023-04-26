@@ -79,33 +79,28 @@ const filteredproducts = filterOrdersById(orderproducts,idArray)
 console.log("filteredproducts***", filteredproducts)
 //////////////////////////////
 
-  return (
-    <div>
-      <h2 className='cart'>Your Cart</h2>
-
-
-        return (
-          <div key={product.id}>
-
-            <h3>
-              Order id:{product.productId}__productName__
-              {productinjector(product.productId)}
-            </h3>
-            <button
-
-              type="button"
-              onClick={() => handleDelete(product.productId)}
-            >
-              Remove product
-
-            </button>
-          </div>
-        );
-      })}
-      <button onClick={handleCheckout}>Checkout</button>
-      {/* <p>Total: {totalCart()}</p> */}
-    </div>
-  );
+return (
+  <div>
+    <h2 className='cart'>Your Cart</h2>
+    {filteredproducts.map((product) => {
+      return (
+        <div key={product.id}>
+          <h3>
+            Order id:{product.productId}__productName__
+            {productinjector(product.productId)}
+          </h3>
+          <button
+            type="button"
+            onClick={() => handleDelete(product.productId)}
+          >
+            Remove product
+          </button>
+        </div>
+      );
+    })}
+    <button onClick={handleCheckout}>Checkout</button>
+    {/* <p>Total: {totalCart()}</p> */}
+  </div>
+);
 }
-
 export default Cart;
