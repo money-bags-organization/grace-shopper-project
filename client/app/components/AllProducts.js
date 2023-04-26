@@ -26,20 +26,24 @@ const AllProducts = () => {
     event.preventDefault();
     dispatch(addAllProducts({ name, price, quantity }));
   };
-
+  console.log(products);
   return (
     <div>
       <div className='product-parent-container'>
-        {products.map((product, id) => {
-          const key = id;
+        {products.map((product, index) => {
+          const key = index;
 
           return (
             <div key={key} className='product-child-element'>
               <NavLink to={`/products/${product.id}`}>
-                <div>
-                  <img src={product.imageUrl} alt='product-image' />
-
+                <div key={index}>
                   <div>
+                    <img
+                      src={product.imageUrl}
+                      alt={product.name}
+                      className='all-image'
+                    />
+
                     <h1> {product.name} </h1>
                     <h1> {product.price} </h1>
                     <p>{product.quantity}</p>

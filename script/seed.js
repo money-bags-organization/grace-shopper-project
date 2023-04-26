@@ -92,10 +92,10 @@ async function seed() {
       imageUrl: '/images/stretch.jpg',
     }),
     Products.create({
-      name: 'Pac-Man Arcade Game',
+      name: 'Pac-Man Arcade',
       price: '1800',
       quantity: '1',
-      imageUrl: '/images/pac-man.jpg',
+      imageUrl: '/images/pacmanx3.jpeg',
     }),
   ]);
   const rick = await User.create({
