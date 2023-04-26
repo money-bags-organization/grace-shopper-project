@@ -1,5 +1,5 @@
 
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect } from 'react';
 
 import {
   fetchAllOrders,
@@ -12,8 +12,10 @@ import {
 import { fetchAllProducts } from "../../features/allProductsSlice";
 
 
+
 import { useSelector, useDispatch } from 'react-redux';
 import { removeFromCart, addToCart } from '../singleProductSlice';
+
 
 function Cart() {
 
@@ -40,7 +42,9 @@ function Cart() {
 
   const dispatch = useDispatch();
 
+
   const handleDelete = (id) => {
+
 
     dispatch(deleteOrderAsync(id));
     dispatch(deleteOrderAsync(id));
@@ -51,26 +55,35 @@ function Cart() {
 
 
   const productinjector = (tt) => {
-    console.log(tt);
-    console.log(products[tt - 1]["name"]);
-    return products[tt - 1]["name"];
+    console.log(tt)   
+    console.log((products[tt-1]["name"]))
+    return (products[tt-1]["name"])
+  }
+ 
+const userId= useSelector((state) => state.auth.me.id);
+ console.log("user id**********", userId)
+ console.log(orders)
 
-  };
 
-  const totalCart = () => {
-    let total = 0;
-    cart.forEach(product => {
-      total += product.price * product.quantity;
-    });
-    return total;
-  };
+ ////
+const listfilter = orders.filter(orders => orders.userId == userId)
+// console.log("filter", listfilter)
+const idArray = listfilter.map(obj => obj.id);
+// console.log("idArray", idArray)
+// console.log("orderproducts", orderproducts)
+
+function filterOrdersById(orders, idArray) {
+   return orders.filter(order => idArray.includes(order.orderId));
+ }
+const filteredproducts = filterOrdersById(orderproducts,idArray)
+console.log("filteredproducts***", filteredproducts)
+//////////////////////////////
 
   return (
     <div>
       <h2 className='cart'>Your Cart</h2>
 
 
-      {orderproducts.map((product) => {
         return (
           <div key={product.id}>
 

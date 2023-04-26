@@ -15,6 +15,12 @@ a {
 label {
   display: block;
 }
+.Bar {
+  background-color: bisque;
+}
+.backgroundblue {
+  background-color: aqua;
+}
 
 nav a {
   display: inline-block;

@@ -18,11 +18,13 @@ const Navbar = () => {
   //End Malcolm edit
 
   return (
+
     <div className='navbar'>
       <h1 className='margin-zero'>RETROLAND</h1>
+
       <nav>
         {isLoggedIn ? (
-          <div>
+          <div >
             {/* The navbar will show these links after you log in */}
             <Link to='/home'>Home</Link>
             <button type='button' onClick={logoutAndRedirectHome}>

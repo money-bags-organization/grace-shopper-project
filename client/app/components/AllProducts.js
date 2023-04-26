@@ -26,6 +26,7 @@ const AllProducts = () => {
     event.preventDefault();
     dispatch(addAllProducts({ name, price, quantity }));
   };
+
   console.log(products);
   return (
     <div>
@@ -33,9 +34,12 @@ const AllProducts = () => {
         {products.map((product, index) => {
           const key = index;
 
+
           return (
+
             <div key={key} className='product-child-element'>
               <NavLink to={`/products/${product.id}`}>
+
                 <div key={index}>
                   <div>
                     <img
@@ -62,7 +66,9 @@ const AllProducts = () => {
         })}
       </div>
 
-      <div className='form-div'>
+
+      <div className="form-div " >
+
         <h1>Add A New Product!</h1>
         <form onSubmit={handleSubmit}>
           <input
