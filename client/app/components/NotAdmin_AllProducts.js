@@ -10,6 +10,7 @@ import { NavLink } from 'react-router-dom';
 const AllProducts = () => {
   const dispatch = useDispatch();
   const products = useSelector(state => state.products);
+  const [imageUrl, setImageUrl] = useState('');
   const [name, setName] = useState('');
   const [price, setPrice] = useState('');
   const [quantity, setQuantity] = useState('');
@@ -40,9 +41,13 @@ const AllProducts = () => {
               <NavLink to={`/products/${product.id}`}>
                 <div>
                   <div key={id}>
-                    <img src={product.imageUrl} />
-
                     <div>
+                      <img
+                        src={product.imageUrl}
+                        alt={product.name}
+                        className='all-image'
+                      />
+
                       <h1> {product.name} </h1>
                       <h1> {product.price} </h1>
                       <p>{product.quantity}</p>
@@ -62,5 +67,7 @@ const AllProducts = () => {
     </div>
   );
 };
+
+// console.log('**********', product.imageUrl);
 
 export default AllProducts;

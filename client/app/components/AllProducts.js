@@ -27,37 +27,27 @@ const AllProducts = () => {
     dispatch(addAllProducts({ name, price, quantity }));
   };
 
-  const images = useSelector((state) => state.singleProduct);
-
-  const productinjector = (tt) => {
-    console.log(tt)    // console.log(products[tt-1].name)
-    console.log((products[tt-1]["name"]))
-    console.log(images.products)
-    // console.log(value)
-    // return (products[tt-1]["name"])
-    // return(images[1].products.imageUrl)
-    // return products[tt-1].id
-  }
-  // images.products.imageUrl
-
+  console.log(products);
   return (
     <div>
       <div className='product-parent-container'>
-        {products.map((product, id) => {
-          const key = id;
-          console.log("tessssssssssssssssssssst", product.imageUrl)
-          console.log(images)
+        {products.map((product, index) => {
+          const key = index;
+
 
           return (
 
             <div key={key} className='product-child-element'>
               <NavLink to={`/products/${product.id}`}>
-                <div>
-                  <img src={product.imageUrl} alt='product-image' />
 
-
+                <div key={index}>
                   <div>
-                  <img src={productinjector(product.id)} alt="product-image" />
+                    <img
+                      src={product.imageUrl}
+                      alt={product.name}
+                      className='all-image'
+                    />
+
                     <h1> {product.name} </h1>
                     <h1> {product.price} </h1>
                     <p>{product.quantity}</p>
