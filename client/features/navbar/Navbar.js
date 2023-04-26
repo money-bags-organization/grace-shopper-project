@@ -15,18 +15,12 @@ const Navbar = () => {
 
   const isLoggedAdmin = useSelector(state => state.auth.me.isAdmin);
 
-
   //End Malcolm edit
 
   return (
     <div className='navbar'>
       <h1 className='margin-zero'>RETROLAND</h1>
       <nav>
-        <div>
-          {/* The navbar will show these links always */}
-          <Link to="/public/products">All Products</Link>
-          <Link to="/cart">Cart</Link>
-        </div>
         {isLoggedIn ? (
           <div>
             {/* The navbar will show these links after you log in */}
@@ -37,14 +31,13 @@ const Navbar = () => {
 
             <Link to='/public/products'>All Products</Link>
             <Link to='/cart'>Cart</Link>
-
           </div>
         ) : (
           <div>
             {/* The navbar will show these links before you log in */}
 
-            <Link to="/login">Login</Link>
-            <Link to="/signup">Sign Up</Link>
+            <Link to='/login'>Login</Link>
+            <Link to='/signup'>Sign Up</Link>
           </div>
         )}
         {isLoggedAdmin ? (
