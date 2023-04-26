@@ -1,21 +1,21 @@
-import React, { useState, useEffect } from "react";
-import { useSelector, useDispatch } from "react-redux";
+import React, { useState, useEffect } from 'react';
+import { useSelector, useDispatch } from 'react-redux';
 import {
   fetchAllProducts,
   deleteProductsAsync,
   addAllProducts,
-} from "../../features/allProductsSlice";
-import { NavLink } from "react-router-dom";
+} from '../../features/allProductsSlice';
+import { NavLink } from 'react-router-dom';
 
 const AllProducts = () => {
   const dispatch = useDispatch();
-  const products = useSelector((state) => state.products);
-  const [name, setName] = useState("");
-  const [price, setPrice] = useState("");
-  const [quantity, setQuantity] = useState("");
+  const products = useSelector(state => state.products);
+  const [name, setName] = useState('');
+  const [price, setPrice] = useState('');
+  const [quantity, setQuantity] = useState('');
 
   //added by malcolm david
-  const handleDelete = (id) => {
+  const handleDelete = id => {
     dispatch(deleteProductsAsync(id));
   };
 
@@ -25,18 +25,18 @@ const AllProducts = () => {
     dispatch(fetchAllProducts());
   }, [dispatch, deleteProductsAsync]);
 
-  const handleSubmit = (event) => {
+  const handleSubmit = event => {
     event.preventDefault();
     dispatch(addAllProducts({ name, price, quantity }));
   };
 
   return (
     <div>
-      <div className="product-parent-container">
+      <div className='product-parent-container'>
         {products.map((product, id) => {
           const key = id;
           return (
-            <div key={key} className="product-child-element">
+            <div key={key} className='product-child-element'>
               <NavLink to={`/products/${product.id}`}>
                 <div>
                   <div key={id}>
@@ -58,7 +58,7 @@ const AllProducts = () => {
         })}
       </div>
 
-      <div className="form-div"></div>
+      <div className='form-div'></div>
     </div>
   );
 };
