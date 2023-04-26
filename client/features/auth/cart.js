@@ -54,10 +54,13 @@ function Cart() {
   };
 
 
-  const productinjector = (tt) => {
-    console.log(tt)   
-    console.log((products[tt-1]["name"]))
+  const productinjector = (tt) =>  {
+    try{
+    // console.log(tt)   
+    // console.log((products[tt-1]["name"]))
     return (products[tt-1]["name"])
+  }
+  catch{}
   }
  
 const userId= useSelector((state) => state.auth.me.id);
