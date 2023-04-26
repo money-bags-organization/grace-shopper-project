@@ -1,6 +1,6 @@
-import React, { useState, useEffect } from "react";
-import { useParams } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import React, { useState, useEffect } from 'react';
+import { useParams } from 'react-router-dom';
+import { useDispatch, useSelector } from 'react-redux';
 
 import {
   fetchSingleProductAsync,
@@ -11,20 +11,20 @@ import {
   addOrderAsync,
   addOrderProductAsync,
   addToCart,
-} from "../../features/singleProductSlice";
+} from '../../features/singleProductSlice';
 
 const SingleProduct = () => {
   const dispatch = useDispatch();
   const { productId } = useParams();
   const product = useSelector(selectSingleProduct);
 
-  const [name, setName] = useState("");
-  const [price, setPrice] = useState("");
-  const [quantity, setQuantity] = useState("");
+  const [name, setName] = useState('');
+  const [price, setPrice] = useState('');
+  const [quantity, setQuantity] = useState('');
 
   // fetch all orders for cart
   const orderlength =
-    useSelector((state) => state.singleProduct.orders.length) + 1;
+    useSelector(state => state.singleProduct.orders.length) + 1;
 
   useEffect(() => {
     dispatch(fetchSingleProductAsync(productId));
@@ -33,7 +33,7 @@ const SingleProduct = () => {
   }, [dispatch, productId]);
 
   // add to cart
-  const userId = useSelector((state) => state.auth.me.id);
+  const userId = useSelector(state => state.auth.me.id);
 
   const handleCart = () => {
     const fulfilled = false;
@@ -46,69 +46,55 @@ const SingleProduct = () => {
     dispatch(fetchOrderProducts());
   };
 
-  const handleSubmit = (evt) => {
+  const handleSubmit = evt => {
     evt.preventDefault();
     const idd = product.products.id;
     dispatch(updateSingleProductAsync({ name, price, quantity, idd }));
-    setName("");
-    setPrice("");
-    setQuantity("");
+    setName('');
+    setPrice('');
+    setQuantity('');
   };
 
   return (
-    <div>
-      <img src={product.products.imageUrl} alt="product" />
-      <h1>{product.products.name}</h1>
-      <h1>{product.products.price}</h1>
-      <p>{product.products.quantity}</p>
-      <button type="button" onClick={handleCart}>
-        Add to Cart
-      </button>
-      <button
-        type="button"
-        onClick={() => dispatch(addToCart(product.products))}
-      >
-        Add to Cart (old)
-      </button>
-      <div className="product-single-element">
-        <div>
-          <img
-            src={product.products.imageUrl}
-            className="single-image"
-            alt="product"
-          />
-          <h1>{product.products.name}</h1>
-          <h1>{product.products.price}</h1>
-          <p>{product.products.quantity}</p>
-        </div>
+    <div className='product-single-container'>
+      <div className='product-single-element'>
+        <img
+          src={product.products.imageUrl}
+          className='single-image'
+          alt='product'
+        />
+        <h1 className='zero-margin'>{product.products.name}</h1>
+        <h1 className='zero-margin'>{product.products.price}</h1>
+        <p className='zero-margin'>{product.products.quantity}</p>
+        <button type='button' className='addToCartBttn' onClick={handleCart}>
+          Add to Cart
+        </button>
       </div>
-      <div className="form-div">
-        <form onSubmit={handleSubmit}>
+
+      <div>
+        <form onSubmit={handleSubmit} className='form-div'>
           <input
-            type="text"
+            type='text'
             value={name}
-            onChange={(e) => setName(e.target.value)}
-            name="product-name"
-            placeholder="Enter Product Name"
+            onChange={e => setName(e.target.value)}
+            name='product-name'
+            placeholder='Edit Product Name'
           />
-          <br />
           <input
-            type="text"
+            type='text'
             value={price}
-            name="product-price"
-            onChange={(e) => setPrice(e.target.value)}
-            placeholder="Enter Product Price"
+            name='product-price'
+            onChange={e => setPrice(e.target.value)}
+            placeholder='Edit Product Price'
           />
-          <br />
           <input
-            type="text"
+            type='text'
             value={quantity}
-            name="product-quantity"
-            onChange={(e) => setQuantity(e.target.value)}
-            placeholder="Enter Product Quantity"
+            name='product-quantity'
+            onChange={e => setQuantity(e.target.value)}
+            placeholder='Edit Product Quantity'
           />
-          <br />
-          <button type="submit" className="addToCartBttn">
+          <button type='submit' className='addToCartBttn'>
             Submit
           </button>
         </form>

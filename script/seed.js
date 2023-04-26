@@ -37,59 +37,58 @@ async function seed() {
 
   //Malcolm Edit??
   const products = await Promise.all([
-
     Products.create({
       name: 'Gameboy',
       price: '100',
-      quantity: '1',
+      quantity: '10',
       imageUrl: '/images/gameboy.jpeg',
     }),
     Products.create({
       name: 'VCR',
       price: '180',
-      quantity: '1',
+      quantity: '15',
       imageUrl: '/images/vcr.jpeg',
     }),
     Products.create({
       name: 'Nintendo 64',
       price: '150',
-      quantity: '1',
+      quantity: '7',
       imageUrl: '/images/n64.jpg',
     }),
     Products.create({
       name: 'Atari',
       price: '200',
-      quantity: '1',
-      imageUrl: '/images/atari.jpeg',
+      quantity: '5',
+      imageUrl: '/images/atari.jpg',
     }),
     Products.create({
       name: 'Laser Disk',
       price: '80',
-      quantity: '1',
+      quantity: '20',
       imageUrl: '/images/laserdisc.jpeg',
     }),
     Products.create({
       name: 'Sega',
       price: '120',
-      quantity: '1',
+      quantity: '3',
       imageUrl: '/images/sega.jpg',
     }),
     Products.create({
       name: 'Jukebox',
       price: '220',
-      quantity: '1',
+      quantity: '2',
       imageUrl: '/images/jukebox.jpg',
     }),
     Products.create({
       name: 'Record Player',
       price: '65',
-      quantity: '1',
+      quantity: '7',
       imageUrl: '/images/recordplayer.jpeg',
     }),
     Products.create({
       name: 'Stretch Armstrong',
       price: '50',
-      quantity: '1',
+      quantity: '26',
       imageUrl: '/images/stretch.jpg',
     }),
     Products.create({
@@ -119,7 +118,8 @@ async function seed() {
   const playstation = await Products.create({
     name: 'playstation',
     price: '100',
-    quantity: '1',
+    quantity: '9',
+    imageUrl: '/images/playstation.jpeg',
   });
 
   // const rickyorder = await OrderProducts.create({

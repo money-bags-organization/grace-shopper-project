@@ -1,5 +1,11 @@
+html {
+  margin: 0;
+  background-color: #f9f5eb;
+}
+
 body {
   font-family: sans-serif;
+  margin: 0;
 }
 
 a {
@@ -14,18 +20,32 @@ nav a {
   display: inline-block;
   margin: 1em;
 }
+.navbar {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  background-color: #ff9f29;
+}
+
+.margin-zero {
+  margin: 0;
+}
 
 .form-div {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  border-radius: 15px;
+  text-align: center;
+  background-color: #f9f5eb;
+  margin-top: 10px;
 }
 
 .single-image {
   width: 300px;
-  height: 300px;
+  height: 250px;
 }
 
 .product-parent-container {
@@ -33,6 +53,7 @@ nav a {
   grid-template-columns: repeat(3, 1fr);
   justify-items: center;
   align-items: center;
+  background-color: #f9f5eb;
 }
 
 .product-child-element {
@@ -45,8 +66,17 @@ nav a {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  text-align: center;
+  background-color: #f7d060;
 }
 
+.product-single-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #f9f5eb;
+}
 .product-single-element {
   width: 350px;
   height: 500px;
@@ -54,9 +84,16 @@ nav a {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  text-align: center;
   box-shadow: 0px 3px 15px rgba(0, 0, 0, 0.2);
   border-radius: 25px;
-  margin-left: 42%;
+  margin-top: 10px;
+  background-color: #006e7f;
+  color: white;
+}
+
+.zero-margin {
+  margin: 5px;
 }
 
 a:visited {
@@ -73,6 +110,8 @@ a:visited {
   padding-top: 5px;
   padding-bottom: 5px;
   border-radius: 15px;
+  color: white;
+  background-color: black;
 }
 
 .addToCartBttn {
@@ -84,5 +123,15 @@ a:visited {
   padding-top: 5px;
   padding-bottom: 5px;
   border-radius: 15px;
-  margin: 20px;
+  margin: 10px;
+  color: white;
+  background-color: black;
+}
+
+.cart {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: #f9f5eb;
 }
