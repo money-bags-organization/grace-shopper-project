@@ -19,8 +19,10 @@ const Navbar = () => {
   //End Malcolm edit
 
   return (
+
     <div className='navbar'>
       <h1 className='margin-zero'>RETROLAND</h1>
+
       <nav>
         <div>
           {/* The navbar will show these links always */}
@@ -28,7 +30,7 @@ const Navbar = () => {
           <Link to="/cart">Cart</Link>
         </div>
         {isLoggedIn ? (
-          <div>
+          <div >
             {/* The navbar will show these links after you log in */}
             <Link to='/home'>Home</Link>
             <button type='button' onClick={logoutAndRedirectHome}>

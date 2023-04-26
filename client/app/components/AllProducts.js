@@ -27,19 +27,37 @@ const AllProducts = () => {
     dispatch(addAllProducts({ name, price, quantity }));
   };
 
+  const images = useSelector((state) => state.singleProduct);
+
+  const productinjector = (tt) => {
+    console.log(tt)    // console.log(products[tt-1].name)
+    console.log((products[tt-1]["name"]))
+    console.log(images.products)
+    // console.log(value)
+    // return (products[tt-1]["name"])
+    // return(images[1].products.imageUrl)
+    // return products[tt-1].id
+  }
+  // images.products.imageUrl
+
   return (
     <div>
       <div className='product-parent-container'>
         {products.map((product, id) => {
           const key = id;
+          console.log("tessssssssssssssssssssst", product.imageUrl)
+          console.log(images)
 
           return (
+
             <div key={key} className='product-child-element'>
               <NavLink to={`/products/${product.id}`}>
                 <div>
                   <img src={product.imageUrl} alt='product-image' />
 
+
                   <div>
+                  <img src={productinjector(product.id)} alt="product-image" />
                     <h1> {product.name} </h1>
                     <h1> {product.price} </h1>
                     <p>{product.quantity}</p>
@@ -58,7 +76,9 @@ const AllProducts = () => {
         })}
       </div>
 
-      <div className='form-div'>
+
+      <div className="form-div " >
+
         <h1>Add A New Product!</h1>
         <form onSubmit={handleSubmit}>
           <input
